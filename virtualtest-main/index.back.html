@@ -1,0 +1,127 @@
+<!DOCTYPE html> == $0
+<html><head>
+		<meta charset="utf-8">
+		<title>Roulette.js Demo</title>
+		<link rel="stylesheet" href="bootstrap.css">
+		<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/themes/ui-lightness/jquery-ui.css">
+		<link rel="stylesheet" href="bootstrap-responsive.css">
+		<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.0/themes/ui-lightness/jquery-ui.css">
+		<link rel="stylesheet" href="demo.css">
+	</head>
+	<body>
+		<div class="navbar navbar-inverse navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+					<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</a>
+					<a class="brand" href="./">Roulette.js</a>
+					<div class="nav-collapse collapse" id="main-menu">
+						<ul class="nav pull-right" id="main-menu-right">
+							<li><a rel="tooltip" target="_blank" href="https://github.com/akira-kuriyama/roulette.js">Github<i class="icon-share-alt"></i></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="page-header" style="">
+				<h1>
+					Roulette.js DEMO
+				</h1>
+			</div>
+
+			<div class="row">
+				<div class="span4">
+					<div class="roulette_container">
+						<div class="roulette" style="overflow: hidden; height: 128px;">
+							
+							
+							
+							
+							
+						<div class="roulette-inner" style="position: relative; top: 0px;"><img src="http://demo.st-marron.info/roulette/sample/star.png" style="display: block;"><img src="flower.png" style="display: block;"><img src="coin.png" style="display: block;"><img src="mshroom.png" style="display: block;"><img src="chomp.png" style="display: block;"><img src="http://demo.st-marron.info/roulette/sample/star.png" style="display: block;"></div></div>
+					</div>
+					<div class="btn_container">
+						<p>
+						<button class="btn btn-large btn-primary start"> START </button>
+						<button class="stop btn-large btn btn-warning" disabled="disabled"> STOP </button>
+						</p>
+					</div>
+					<div class="log_container">
+						<p class="demo_label">Log</p>
+						<div id="msg">
+						</div>
+					</div>
+				</div>
+				<div class="span4">
+					<div class="right_container">
+						<p class="demo_label">Paramater</p>
+						<div class="speed_value param_label">
+							<span class="param_name">speed :</span> <span class="speed_param">10</span>
+						</div>
+						<div id="speed" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all"> <a class="ui-slider-handle ui-state-default ui-corner-all" href="#" style="left: 31.0345%;"></a></div>
+						
+						<div class="duration_value param_label">
+							<span class="param_name">duration :</span> <span class="duration_param">3</span>
+						</div>
+						<div id="duration" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all"> <a class="ui-slider-handle ui-state-default ui-corner-all" href="#" style="left: 12.5%;"></a></div>
+						
+						<div class="stop_image_number_value param_label">
+							<span class="param_name">stop image number :</span> <span class="stop_image_number_param">0</span>
+						</div>
+						<span class="ui-spinner ui-state-default ui-widget ui-widget-content ui-corner-all"><input id="stopImageNumber" name="stopImageNumber" class="ui-spinner-input" autocomplete="off" role="spinbutton" aria-valuenow="0"><a class="ui-spinner-button ui-spinner-up ui-corner-tr ui-button ui-widget ui-state-default ui-button-text-only" tabindex="-1" role="button" aria-disabled="false"><span class="ui-button-text"><span class="ui-icon ui-icon-triangle-1-n">▲</span></span></a><a class="ui-spinner-button ui-spinner-down ui-corner-br ui-button ui-widget ui-state-default ui-button-text-only" tabindex="-1" role="button" aria-disabled="false"><span class="ui-button-text"><span class="ui-icon ui-icon-triangle-1-s">▼</span></span></a></span>
+						<span class="image_sample">
+							<img data-value="0" src="star.png" style="opacity: 1;">
+							<img data-value="1" src="flower.png" style="opacity: 0.2;">
+							<img data-value="2" src="coin.png" style="opacity: 0.2;">
+							<img data-value="3" src="mshroom.png" style="opacity: 0.2;">
+							<img data-value="4" src="chomp.png" style="opacity: 0.2;">
+							<img data-value="-1" src="random.png" title="random" style="opacity: 0.2;">
+						</span>
+					</div>
+					<div class="right_container code_container">
+						<p class="demo_label">Code</p>
+						<span class="label label-info" style="">JavaScript</span>
+							<pre>var option = {
+	speed : <span class="speed_param">10</span>,
+	duration : <span class="duration_param">3</span>,
+	stopImageNumber : <span class="stop_image_number_param">0</span>,
+	startCallback : function() {
+		console.log('start');
+	},
+	slowDownCallback : function() {
+		console.log('slowDown');
+	},
+	stopCallback : function($stopElm) {
+		console.log('stop');
+	}
+}
+$('div.roulette').roulette(option);	
+							</pre>
+						<span class="label label-info" style="">HTML</span>
+							<pre>
+&lt;div class="roulette" style="display:none;"&gt; 
+	&lt;img src="http://example.com/star.png"/&gt;
+	&lt;img src="http://example.com/flower.png"/&gt;
+	&lt;img src="http://example.com/coin.png"/&gt;
+	&lt;img src="http://example.com/mshroom.png"/&gt;
+	&lt;img src="http://example.com/chomp.png"/&gt;
+&lt;/div&gt; 
+							</pre>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.0/jquery-ui.min.js"></script>
+		<script src="../roulette.js"></script>
+		<script src="demo.js"></script>
+
+	
+
+
+</body></html>

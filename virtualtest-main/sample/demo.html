@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Sorteo Megacable</title>
+	<link rel="stylesheet" href="bootstrap.css">
+	</link>
+	<link rel="stylesheet"
+		href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/themes/ui-lightness/jquery-ui.css">
+		
+		<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+		<link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css"> -->
+		
+		<link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">	
+		<link rel="stylesheet" href="bootstrap-responsive.css">	
+	</link>
+	<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.0/themes/ui-lightness/jquery-ui.css">
+	<link rel="stylesheet" href="demo.css">
+	</link>
+</head>
+
+
+<script>
+	window.onload=function()  {	
+		$(".show_big_award_winner").hide();
+		$.extend( true, $.fn.dataTable.defaults, {			
+			// "dom": "Bfrtip",
+			"dom": "Bflrtip",
+			"buttons": [
+				// "copy", 
+				// "csv", 
+				"excel", 
+				// "pdf", 
+				// "print"
+			],
+			"searching": true,
+			"ordering": true,
+			"language": {
+				"search": 	  "Buscar:",
+				"paginate": {
+					"first":      "Primero",
+					"last":       "Último",
+					"next":       "Siguiente",
+					"previous":   "Anterior"
+				},
+				"infoEmpty":      "Mostrar del 0 al 0 de un total: 0",
+				"info":           "Mostrar del _START_ al _END_ de un total: _TOTAL_",
+				"emptyTable":     "No hay datos",
+				"lengthMenu":     "Número de paginado _MENU_"
+			},
+			"pagingType": "simple_numbers",
+			"scrollY": "200px",
+			"scrollCollapse": true			
+		} );
+		
+		$('#example').DataTable();
+} </script>
+<body>	
+
+	<div class="container-principal">
+		<div class="page-header" style="margin-top: 5px;background: black;">
+			<h1 style="text-align: center; color: white;  font-size: 50px;">
+				Sorteo Megacable
+			</h1>
+		</div>
+
+		<div class="numbers_container">
+			<div class="roulette_container" >
+				<div class="roulette1" style="display:none;">
+					<img src="Red/0.png"/>
+					<img src="Red/1.png"/>
+					<img src="Red/2.png"/>
+					<img src="Red/3.png"/>
+					<img src="Red/4.png"/>
+					<img src="Red/5.png"/>
+					<img src="Red/6.png"/>
+					<img src="Red/7.png"/>
+					<img src="Red/8.png"/>
+					<img src="Red/9.png"/>
+				</div>
+			</div>
+
+			<div class="roulette_container" >
+				<div class="roulette2" style="display:none;">
+					<img src="Red/0.png"/>
+					<img src="Red/1.png"/>
+					<img src="Red/2.png"/>
+					<img src="Red/3.png"/>
+					<img src="Red/4.png"/>
+					<img src="Red/5.png"/>
+					<img src="Red/6.png"/>
+					<img src="Red/7.png"/>
+					<img src="Red/8.png"/>
+					<img src="Red/9.png"/>
+				</div>
+			</div>
+
+			<div class="roulette_container" >
+				<div class="roulette3" style="display:none;">
+					<img src="Red/0.png"/>
+					<img src="Red/1.png"/>
+					<img src="Red/2.png"/>
+					<img src="Red/3.png"/>
+					<img src="Red/4.png"/>
+					<img src="Red/5.png"/>
+					<img src="Red/6.png"/>
+					<img src="Red/7.png"/>
+					<img src="Red/8.png"/>
+					<img src="Red/9.png"/>
+				</div>
+			</div>
+
+			<div class="roulette_container" >
+				<div class="roulette4" style="display:none;">
+					<img src="Red/0.png"/>
+					<img src="Red/1.png"/>
+					<img src="Red/2.png"/>
+					<img src="Red/3.png"/>
+					<img src="Red/4.png"/>
+					<img src="Red/5.png"/>
+					<img src="Red/6.png"/>
+					<img src="Red/7.png"/>
+					<img src="Red/8.png"/>
+					<img src="Red/9.png"/>
+				</div>
+			</div>
+
+			<div class="roulette_container" >
+				<div class="roulette5" style="display:none;">
+					<img src="Red/0.png"/>
+					<img src="Red/1.png"/>
+					<img src="Red/2.png"/>
+					<img src="Red/3.png"/>
+					<img src="Red/4.png"/>
+					<img src="Red/5.png"/>
+					<img src="Red/6.png"/>
+					<img src="Red/7.png"/>
+					<img src="Red/8.png"/>
+					<img src="Red/9.png"/>
+				</div>
+			</div>
+
+			<div class="roulette_container" >
+				<div class="roulette6" style="display:none;">
+					<img src="Red/0.png"/>
+					<img src="Red/1.png"/>
+					<img src="Red/2.png"/>
+					<img src="Red/3.png"/>
+					<img src="Red/4.png"/>
+					<img src="Red/5.png"/>
+					<img src="Red/6.png"/>
+					<img src="Red/7.png"/>
+					<img src="Red/8.png"/>
+					<img src="Red/9.png"/>
+				</div>
+			</div>
+
+			<div class="roulette_container" >
+				<div class="roulette7" style="display:none;">
+					<img src="Red/0.png"/>
+					<img src="Red/1.png"/>
+					<img src="Red/2.png"/>
+					<img src="Red/3.png"/>
+					<img src="Red/4.png"/>
+					<img src="Red/5.png"/>
+					<img src="Red/6.png"/>
+					<img src="Red/7.png"/>
+					<img src="Red/8.png"/>
+					<img src="Red/9.png"/>
+				</div>
+			</div>
+		</div>
+
+		<div class="btn_container">
+			<div style="padding: 35px;">
+				<button class="btn btn-large btn-success start" style="width: 126px;height: 44px;"> Sortear </button>
+			</div>
+
+			<label style="color: white;margin-top: 15px;">
+				<input type="checkbox" id="bigAward" style="margin-top: -3px;margin-right: 5px;">
+				Premio mayor
+			</label>
+
+			<div>
+				<label style="color: white;margin-top: 15px;">
+					N° de participantes
+				</label>
+				<input type="number" min="1" value="1" max="100" id="participantNumber" style="margin-top: 5px;margin-right: 5px;width: 60px;">
+			</div>
+
+			<div style="padding: 35px;">
+				<button class="btn btn-large btn-success winners"> Ganadores </button>
+			</div>
+		</div>
+
+		<!-- <div> -->
+			
+			
+			<!-- <div class="employeName" style="text-align: center; color: yellow; font-size: 60px;"> -->
+			<div class="employeName" style="width: 700px;margin: auto;">
+				<div class="data_table_winners" style="background: white;border-style: double; border-width: 10px;
+					padding: 10px; height: 390px;">
+					<table id="example" class="display nowrap" style="border-style: double;width:100%;">
+						<thead>
+							<tr>
+								<th>Id</th>
+								<th>Nombre</th>
+								<th>Premio</th>
+							</tr>
+						</thead>
+						<tbody>
+						</tbody>							
+					</table>
+				</div>
+
+				<div class="show_big_award_winner" style="color: yellow; font-size: 30px; text-align: justify;">					
+				</div>
+
+				<div id="bod"></div>
+
+			</div>
+
+		<!-- </div> -->
+	</div>			
+		
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.0/jquery-ui.min.js"></script>
+
+	<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+	<script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/buttons/1.6.5/js/dataTables.buttons.min.js"></script>
+	<script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.flash.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+	<script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.html5.min.js"></script>
+	<script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.print.min.js"></script>
+	
+	<script src="../roulette.js"></script>
+	<script src="demo.js"></script>
+	<script src="../data/crudNumber.js"></script>
+	
+
+	<!-- <script src="https://code.jquery.com/jquery-3.5.1.js"></script> -->
+	<!-- <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script> -->
+	<!-- <script src="https://cdn.datatables.net/buttons/1.6.5/css/buttons.dataTables.min.css"></script> -->
+	<!-- <script src="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css"></script> -->
+	
+</body>
+
+</html>
