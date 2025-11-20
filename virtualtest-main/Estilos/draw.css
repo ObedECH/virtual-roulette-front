@@ -1,5 +1,5 @@
 #regionDisplay {
-	color: #e0c886;
+	color: snow;
     text-align: center;
     font-size: 125px;
     display: grid;
@@ -126,7 +126,7 @@ img {
 
 .show_big_award_winner {
     font-family: serif;
-    color: rgb(239 211 140);
+    color: snow;
     text-align: left;
     margin: auto;
     height: max-content;
