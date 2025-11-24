@@ -72,22 +72,8 @@
 
 <body>
 	<div class="container-principal">
-		<div class="page-header page-header-principal">
-			<!-- <h1 style="text-align: center; color: white;  font-size: 50px;">
-				Sorteo Megacable
-			</h1> -->
-			<div class="div-img-logo">
-				<!-- <img src="Estilos/imagenes/logo-megacable.png"/> -->
-				<a class="brand" href="./">
-					<img src="Estilos/imagenes/logo-megacable.png" />
-				</a>
-			</div>
-
-			<div class="div-img-title">
-				
-			</div>
-
-		</div>
+		<a href="./" class="page-header page-header-principal">
+		</a>
 
 		<div class="numbers_container">
 			<div class="roulette_container">
@@ -220,14 +206,14 @@
 		<div class="btn_container">
 			<button class="btn btn-large btn-success start" style="width: 126px;height: 44px;"> Sortear </button>
 
-			<label style="color: white;">
-				<input type="checkbox" checked="checked" id="bigAward" style="margin-top: -3px;margin-right: 5px;">
-				Premio mayor
+			<label style="color: white; display: none;">
+				<input type="checkbox" checked="checked" id="bigAward" style="margin-top: -3px;margin-right: 5px; display: none;">
+				Premio mayor 
 			</label>
 
 			<div class="regions-data">
-				<label id="regionalIdLabel" style="color: white; display: list;" for="regiones">Región:</label>
-				<select id="regionalId" name="regions" style="margin-right: 5px;width: 180px;display: list;">
+				<label id="regionalIdLabel" style="color: white; display: none;" for="regiones">Región:</label>
+				<select id="regionalId" name="regions" style="margin-right: 5px;width: 180px; display: none">
 					<option value="CORPORATIVO" selected>CORPORATIVO</option>
 					<option value="CENTRO">CENTRO</option>
 					<option value="CALL CENTER">CALL CENTER</option>
@@ -246,11 +232,11 @@
 
 
 			<div class="number-winners">
-				<label id="participantNumberLabel" style="color: white;display: none;">
+				<label id="participantNumberLabel" style="color: white; display: none;">
 					N° de ganadores:
 				</label>
 				<input type="number" min="1" value="1" max="100" id="participantNumber"
-					style="margin-right: 5px;width: 60px;display: none;">
+					style="margin-right: 5px;width: 60px; display: none;">
 			</div>
 		</div>
 

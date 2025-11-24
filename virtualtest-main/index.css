@@ -10,6 +10,19 @@
 	text-decoration: none !important;
 	z-index: 1;
 }
+.redirect-winners {
+	margin-top: 50px;
+	position: absolute;
+	right: 32px;
+	top: 32px;
+	color: snow !important;
+	height: 41px;
+
+	font-size: 36px;
+	font-weight: bold;
+	text-decoration: none !important;
+	z-index: 1;
+}
 
 #myVideo {
 	position: absolute;

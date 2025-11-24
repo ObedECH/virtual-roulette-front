@@ -1,0 +1,25 @@
+[
+  { "id": 1, "descripcion": "Air Lite Fit Switch", "imagen": "http://10.10.96.130/AirLiteFitSwitch.png" },
+  { "id": 2, "descripcion": "Alexa Echo Dot", "imagen": "http://10.10.96.130/AlexaEchoDot.png" },
+  { "id": 3, "descripcion": "Audifonos Sony", "imagen": "http://10.10.96.130/AudifonosSony.png" },
+  { "id": 4, "descripcion": "Bose Soundlink Flex", "imagen": "http://10.10.96.130/BoseSoundlinkFlex.png" },
+  { "id": 5, "descripcion": "Cafetera Gourmia", "imagen": "http://10.10.96.130/CafeteraGourmia.png" },
+  { "id": 26, "descripcion": "Freidora de aire digital Gourmia", "imagen": "http://10.10.96.130/FreidoradeairedigitalGourmia.png" },
+  { "id": 27, "descripcion": "Frutelia Plus", "imagen": "http://10.10.96.130/FruteliaPlus.jpg" },
+  { "id": 54, "descripcion": "Galaxy Tab A11", "imagen": "http://10.10.96.130/GalaxyTabA11.png" },
+  { "id": 29, "descripcion": "Hamilton Beach Freidora 2L", "imagen": "http://10.10.96.130/HamiltonBeachFreidora2L.jpg" },
+  { "id": 30, "descripcion": "Horno Freidor de Aire T-fal XL", "imagen": "http://10.10.96.130/HornoFreidordeAireT-falXL.png" },
+  { "id": 53, "descripcion": "iPhone 17 Pro", "imagen": "http://10.10.96.130/iPhone-17-Pro.jpeg" },
+  { "id": 55, "descripcion": "JBL Flip 7", "imagen": "http://10.10.96.130/JBLFlip7.png" },
+  { "id": 56, "descripcion": "Lenovo Tab M11", "imagen": "http://10.10.96.130/LenovoTabM11.png" },
+  { "id": 14, "descripcion": "Licuadora Personal Hamilton Beach", "imagen": "http://10.10.96.130/LicuadoraPersonalHamiltonBeach.png" },
+  { "id": 15, "descripcion": "Maleta Perry Ellis", "imagen": "http://10.10.96.130/MaletaPerryEllis.png" },
+  { "id": 16, "descripcion": "Nintendo Switch", "imagen": "http://10.10.96.130/NintendoSwitch.png" },
+  { "id": 17, "descripcion": "NutriBullet", "imagen": "http://10.10.96.130/NutriBullet.png" },
+  { "id": 18, "descripcion": "Oster Combo", "imagen": "http://10.10.96.130/OsterCombo.png" },
+  { "id": 52, "descripcion": "Pantalla TCL 55", "imagen": "http://10.10.96.130/PantallaTCL55.png" },
+  { "id": 20, "descripcion": "SONY PS5", "imagen": "http://10.10.96.130/SONYPS5.png" },
+  { "id": 51, "descripcion": "Xbox Series S", "imagen": "http://10.10.96.130/XboxSeries.png" }
+]
+
+

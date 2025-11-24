@@ -1,4 +1,11 @@
-﻿$(function () {
+﻿var prizesCatalog = [];
+
+fetch('data/prizes.json')
+	.then(resp => resp.json())
+	.then(data => prizesCatalog = data)
+	.catch(() => console.warn('No se pudo cargar prizes.json'));
+
+$(function () {
 	//#region variables generales
 	var generalSpeed = 10;
 	var participantNumber = '1';
@@ -14,8 +21,8 @@
 		false,
 		false,
 		false
-	];	
-	var dataTableConfig = {			
+	];
+	var dataTableConfig = {
 		// "dom": "Bfrtip",
 		"dom": "Bflrtip",
 		"buttons": [
@@ -32,8 +39,8 @@
 			"lengthMenu": "Mostrar _MENU_ registros",
 			"zeroRecords": "No se encontraron resultados",
 			"emptyTable": "Ningún dato disponible en esta tabla",
-			"infoEmpty":      "Mostrar del 0 al 0 de un total: 0",
-			"info":           "Mostrar del _START_ al _END_ de un total: _TOTAL_",
+			"infoEmpty": "Mostrar del 0 al 0 de un total: 0",
+			"info": "Mostrar del _START_ al _END_ de un total: _TOTAL_",
 			"infoFiltered": "(filtrado de un total de _MAX_ registros)",
 			"search": "Buscar:",
 			"infoThousands": ",",
@@ -54,7 +61,7 @@
 		"sScrollX": "100%",
 		"scrollX": true,
 		"scrollCollapse": true,
-		"order": [[ 2, "asc" ]]		
+		"order": [[2, "asc"]]
 	};
 
 	var rouletter = $('div.roulette1');
@@ -76,12 +83,12 @@
 
 	var appendLogMsg = function (msg) {
 		$("#msg")
-		.append('<p class="muted" style="position: absolute;">' + msg + "</p>")
-		.scrollTop(100000000);
-	};	
-	
-	$('.start').click(function(){		
-		setValues();		
+			.append('<p class="muted" style="position: absolute;">' + msg + "</p>")
+			.scrollTop(100000000);
+	};
+
+	$('.start').click(function () {
+		setValues();
 		setDisabledButtons(true);
 
 		if (!isSortButtonDisabled()) {
@@ -91,7 +98,7 @@
 		}
 	});
 
-	var setValues = function() {
+	var setValues = function () {
 		participants = [];
 		$('.show_big_award_winner')
 			.html('');
@@ -100,9 +107,9 @@
 		// 	'url("Estilos/imagenes/fondo.png")'
 		// );
 		$('#myVideo').hide();
-	}	
+	}
 
-	$('#bigAward').click(function() {
+	$('#bigAward').click(function () {
 		isBigAward = $("#bigAward").is(':checked');
 
 		$('#regionDisplay').html(isBigAward ? '' : $('#regionalId').val() || '');
@@ -121,10 +128,10 @@
 			"disabled",
 			isSortButtonDisabled()
 		);
-		
+
 		if (!isBigAward) {
-			$('.show_big_award_winner').hide();	
-			$('.roulette-default').hide();		
+			$('.show_big_award_winner').hide();
+			$('.roulette-default').hide();
 			$('#participantNumberLabel').css('display', 'block');
 			$('#participantNumber').css('display', 'block');
 			// $('#regionalIdLabel').css('display', 'block');
@@ -141,34 +148,34 @@
 			$('#participantNumber').css('display', 'none');
 			// $('#regionalIdLabel').css('display', 'none');
 			// $('#regionalId').css('display', 'none');
-			$('.show_big_award_winner').show();	
+			$('.show_big_award_winner').show();
 		}
 		setValues();
 	});
 
-	$('#participantNumber').change(function() {
+	$('#participantNumber').change(function () {
 		partipantNumberFieldDisabled();
 	});
 
-	$('#participantNumber').keyup(function() {
+	$('#participantNumber').keyup(function () {
 		partipantNumberFieldDisabled();
 	});
 
-	$('#regionalId').change(function() {
+	$('#regionalId').change(function () {
 		getRegionalId();
 	});
 
-	var getRegionalId = function() {
+	var getRegionalId = function () {
 		regionalId = $('#regionalId').val();
 		$('#regionDisplay').html(regionalId);
 	}
-	
 
-	var partipantNumberFieldDisabled = function() {
+
+	var partipantNumberFieldDisabled = function () {
 		participantNumber = $('#participantNumber')
-		.val() === '' 
-		? '0' 
-		: $('#participantNumber').val();		
+			.val() === ''
+			? '0'
+			: $('#participantNumber').val();
 
 		$('.start').prop(
 			"disabled",
@@ -176,15 +183,15 @@
 		);
 	}
 
-	var isSortButtonDisabled = function() {
+	var isSortButtonDisabled = function () {
 		var min = parseInt($('#participantNumber').attr('min'));
 		var max = parseInt($('#participantNumber').attr('max'));
 
 		var isSortButtonDisabled = !(
 			(
-				!isBigAward && 
+				!isBigAward &&
 				(
-					parseInt(participantNumber) >= min && 
+					parseInt(participantNumber) >= min &&
 					parseInt(participantNumber) <= max
 				)
 			) ||
@@ -194,7 +201,7 @@
 		return isSortButtonDisabled;
 	}
 
-	var setDataTableRow = function () {		
+	var setDataTableRow = function () {
 		var table = $("#example").DataTable();
 		var participantesTmp = [];
 
@@ -209,14 +216,14 @@
 				//participante.prizeDescription,
 				// participante.dateRegistry
 			]);
-		});		
-		
+		});
+
 		setDisabledButtons(false);
 		participants = [];
-		table.rows.add( participantesTmp).draw();
+		table.rows.add(participantesTmp).draw();
 	}
 
-	var setDisabledButtons = function(executing) {
+	var setDisabledButtons = function (executing) {
 		if (executing) {
 			$('.start').prop("disabled", true);
 			$('#bigAward').prop("disabled", true);
@@ -231,9 +238,9 @@
 		}
 		stopNumbers = [false, false, false, false, false, false];
 	}
-	
-	var createAndExecuteRouletters = function() {
-		var participantNumberUrl = isBigAward ? '1' : participantNumber;	
+
+	var createAndExecuteRouletters = function () {
+		var participantNumberUrl = isBigAward ? '1' : participantNumber;
 		var region = isBigAward ? 'NACIONAL' : $('#regionalId').val();
 
 		getNumber(participantNumberUrl, region).then(data => {
@@ -247,8 +254,8 @@
 					participants = data;
 					setDataTableRow();
 
-					if (data.length < participantNumber ) {
-						alert("Sólo se obtuvieron "+ data.length +" ganadores de " + participantNumber + " solicitados");
+					if (data.length < participantNumber) {
+						alert("Sólo se obtuvieron " + data.length + " ganadores de " + participantNumber + " solicitados");
 					}
 				}
 			} else {
@@ -258,17 +265,17 @@
 			}
 		}).catch(error => {
 			setDisabledButtons(false);
-		});		
+		});
 	}
 
-	var getParameter = function(field, id, duration) {
+	var getParameter = function (field, id, duration) {
 		var parameter = {
-			speed : generalSpeed,
-			fieldPosition : field,
-			userId : id,
-			stopImageNumber : id.charAt(field),
-			duration : 9,
-			stopCallback : function() {
+			speed: generalSpeed,
+			fieldPosition: field,
+			userId: id,
+			stopImageNumber: id.charAt(field),
+			duration: 9,
+			stopCallback: function () {
 				stopNumbers[field] = true;
 				if (stopNumbers.filter(sn => sn === true).length === 6) {
 					$('.show_big_award_winner').show();
@@ -281,9 +288,9 @@
 					// 	'url("Estilos/imagenes/mega-azul-felicidades.png")'
 					// );
 					$('.show_big_award_winner')
-					.append(getWinnerHtml(participants[0], 1));
-					$('#myVideo').show();					
-					
+						.append(getWinnerHtml(participants[0], 1));
+					$('#myVideo').show();
+
 					// $('.show_big_award_winner')
 					// .append(`
 					// 	<video autoplay muted loop id="myVideo">
@@ -299,16 +306,16 @@
 
 						setTimeout(() => {
 							setDisabledButtons(false);
-						}, 4 * 3000);					
-					}					
+						}, 4 * 3000);
+					}
 				}
 			}
-		};		
-		
+		};
+
 		return parameter;
 	}
 
-	var createDataTable = function(data) {
+	var createDataTable = function (data) {
 		// <th>Id</th>
 		// <th>Región</th>
 		// <th>Fecha</th>
@@ -328,54 +335,58 @@
 			</div>
 		`;
 		$('.employeName').html(html);
-		$.extend( true, $.fn.dataTable.defaults, dataTableConfig);
-		
-		$('#example').DataTable();
-	}	
+		$.extend(true, $.fn.dataTable.defaults, dataTableConfig);
 
-	var getWinnerHtml = function(data, key) {
-		// <img class="img-responsive" src="Estilos/imagenes/Comp 3.gif" />
-		// <p class="data-name" style="position: absolute;top: 50px;">
-		// <p class="data-general" style="position: absolute;top: 90px;">
+		$('#example').DataTable();
+	}
+
+	var getWinnerHtml = function (data, key) {
 		var html = '';
-		
+		var prizeFromCatalog = prizesCatalog.find(prize => Number(prize.id) === Number(data.prize));
+		var prizeImage = data.imagen || data.prizeImage || data.image || (prizeFromCatalog ? prizeFromCatalog.imagen : '');
+		var prizeVisual = prizeImage
+			? `<img src="${prizeImage}" alt="Premio ${data.prizeDescription}">`
+			: `<div class="winner-card__placeholder">Imagen no disponible</div>`;
+
 		switch (key) {
 			case 1: html = `
-						<strong>
+						<div class="prize-image">
+							${prizeImage ? `<img src="${prizeImage}" alt="Premio ${data.prizeDescription}">` : ''}
+						</div>
 						<p class="data-general">
 						<strong style="color: #ffffff;">Premio:</strong>			
 						${data.prize} - ${data.prizeDescription}</p><br>						
-					`;				
+					`;
 				break;
 			case 2: html = `						
-						<strong>
-						<p class="data-general">
-						<strong style="color: #ffffff;">Región:</strong>
-						${data.region}</p><br>						
-					`;				
+							<strong>
+							<p class="data-general">
+							<strong style="color: #ffffff;">Región:</strong>
+							${data.region}</p><br>						
+						`;
 				break;
 			case 3: html = `						
-						<strong>
-						<p class="data-general">
-						<strong style="color: #ffffff;">Área:</strong>			
-						${data.area}</p><br>						
-					`;				
-				break;			
+							<strong>
+							<p class="data-general">
+							<strong style="color: #ffffff;">Área:</strong>			
+							${data.area}</p><br>						
+						`;
+				break;
 			case 4: html = `						
-						<strong>
-						<p class="data-general">
-						<strong style="color: #ffffff;">Puesto:</strong>
-						${data.company}</p><br>
-					`;				
+							<strong>
+							<p class="data-general">
+							<strong style="color: #ffffff;">Puesto:</strong>
+							${data.company}</p><br>
+						`;
 				break;
 			case 5: html = `						
-						<strong>
-						<p class="data-name">
-						<strong style="color: #ffffff;">Nombre:</strong>
-						${data.name}</p><br>
-					`;				
+							<strong>
+							<p class="data-name">
+							<strong style="color: #ffffff;">Nombre:</strong>
+							${data.name}</p><br>
+						`;
 				break;
-		
+
 			default:
 				break;
 		}
@@ -383,14 +394,14 @@
 		return html;
 	}
 
-	var getRouletters = function(data, init = false) {
+	var getRouletters = function (data, init = false) {
 		data = data;
-		var id = data.id.toString();	
+		var id = data.id.toString();
 		if (id.length < 6) {
 			id = '0'.repeat(6 - id.length) + id;
-		}	
-		
-		rouletter.roulette(getParameter(0, id, 1));		
+		}
+
+		rouletter.roulette(getParameter(0, id, 1));
 		rouletter2.roulette(getParameter(1, id, 3));
 		rouletter3.roulette(getParameter(2, id, 3));
 		rouletter4.roulette(getParameter(3, id, 5));
@@ -405,19 +416,19 @@
 		// rouletter6.roulette();
 
 		if (init) {
-			
-		} else {	
-			$('.roulette-default').hide();		
+
+		} else {
+			$('.roulette-default').hide();
 			rouletter.roulette('start');
-			rouletter2.roulette("start");			
-			rouletter3.roulette("start");			
-			rouletter4.roulette("start");			
-			rouletter5.roulette("start");			
-			rouletter6.roulette("start");			
+			rouletter2.roulette("start");
+			rouletter3.roulette("start");
+			rouletter4.roulette("start");
+			rouletter5.roulette("start");
+			rouletter6.roulette("start");
 		}
 	}
 
-	var initRouletters = function(init = true) {
+	var initRouletters = function (init = true) {
 		getRouletters({
 			id: '',
 		}, init);
