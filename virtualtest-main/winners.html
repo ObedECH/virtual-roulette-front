@@ -70,27 +70,32 @@
 	} </script>
 
 <body>
-	<div class="btn_container">
-		<div>
-			<button class="btn btn-large btn-success winners"> Refrescar </button>
-		</div>
-	</div>
+
 
 	<div class="container-principal">
-		<div class="page-header page-header-principal">
+		<a href="./" class="page-header page-header-principal">
+
 			<!-- <h1 style="text-align: center; color: white;  font-size: 50px;">
 				Sorteo Megacable
 			</h1> -->
 			<div class="div-img-logo">
 				<!-- <img src="Estilos/imagenes/logo-megacable.png"/> -->
-				<a class="brand" href="./">
+				<!-- 				<a class="brand" href="./">
 					<img src="Estilos/imagenes/logo-megacable.png" />
-				</a>
+				</a> -->
 			</div>
 
 			<div class="div-img-title">
-				<img src="Estilos/imagenes/titulo-posada.png" />
+				<!-- <img src="Estilos/imagenes/titulo-posada.png" /> -->
 			</div>
+
+			<!-- Mover el botón aquí para que quede en la cabecera y no sobre la tabla -->
+			<!-- 			<div class="btn_container">
+				<div>
+					<a button href="./" class="redirect-home"> inicio
+					</a>
+				</div>
+			</div> -->
 
 			<!-- <div class="nav-collapse collapse" id="main-menu">
 				<ul class="nav pull-right mega-menu" id="main-menu-right">
@@ -104,7 +109,7 @@
 				<a rel="tooltip" href="draw.html" >Sorteo<i class="icon-share-alt"></i></a>
 			</div> -->
 
-		</div>
+		</a>
 
 		<!-- <div> -->
 
@@ -113,7 +118,7 @@
 			<div class="employeName">
 				<div class="data_table_winners">
 					<table id="example" class="display nowrap"
-						style="border-style: double;width:100%;background: #cb7314;">
+						style="border-style: double;width:100%;background: rgb(2, 2, 127);"> <!-- rgb(4, 4, 107) -->
 						<thead>
 							<tr>
 								<th>Id</th>
@@ -131,9 +136,16 @@
 				</div>
 			</div>
 		</div>
+		<div class="btn_container">
+			<div>
+				<button class="btn btn-large btn-success winners"> Refrescar </button>
+			</div>
+		</div>
+
 
 		<!-- </div> -->
 	</div>
+
 
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.0/jquery-ui.min.js"></script>

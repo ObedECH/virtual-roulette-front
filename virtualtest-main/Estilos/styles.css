@@ -9,13 +9,18 @@ body {
 
 .page-header-principal {
 	display: grid;
-	grid-template-columns: max-content auto;
+	grid-template-columns: max-content 1fr max-content;
 	align-items: center;
-
+	/* column-gap: 20px; */
+	background-image: url(http://10.10.96.130/banner.png);
+	background-color: rgba(255, 250, 250, 0.685);
+	/* background-size: 100%; */
+	background-size: contain;
+	background-position:center;
+	background-repeat: no-repeat;
 	margin-top: 0px;
 	height: 100px;
-	background: rgba(5, 0, 51, 0.75);
-	border-bottom: 1px solid #eeeeee;
+
 }
 
 
@@ -92,22 +97,36 @@ img {
 	margin: auto;
 }
 
+.div-img-banner {
+	justify-self: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+}
+
+.div-img-banner img {
+	max-height: 80px;
+	width: auto;
+	object-fit: contain;
+}
+
 /* .container {
 	display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: repeat(4, 1fr);
 } */
 
-.container-principal {
-	/* margin-left: 20px!important;
+/* .container-principal {
+	 margin-left: 20px!important;
 	display: grid;
 	grid-template-columns: 1fr;
 	grid-template-rows: 100px 200px 50px 100px;
 	grid-template-rows: 1fr;
 	height: 100%;
 	min-width: 800px;
-	overflow: scroll; */
-}
+	overflow: scroll; 
+} */
 
 div.roulette_container {
 	/* background-color:rgb(253, 252, 253); */
@@ -199,7 +218,7 @@ div.ui-slider {
 
 table,
 .dataTables_scrollHeadInner .dataTable {
-	background: rgb(208 173 108) !important;
+	/* background: rgb(208 173 108) !important; */
 }
 
 .data_table_winners label,
@@ -214,7 +233,7 @@ table,
 
 .dataTables_wrapper .dataTables_paginate .paginate_button:hover,
 .dataTables_wrapper .dataTables_paginate .paginate_button:active {
-	background: rgb(208 173 108) !important;
+	/* background: rgb(208 173 108) !important; */
 	border: none !important;
 }
 

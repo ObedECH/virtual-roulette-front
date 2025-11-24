@@ -112,14 +112,41 @@ div.roulette_container1 {
 	margin: auto;
 }
 
-.btn_container {
+.page-header-principal {
+	position: relative;
+}
+
+.page-header-principal .btn_container {
+	/* Anclar el botón a la esquina superior derecha del header */
 	position: absolute;
-	left: 22vw;
-	top: 140px;
+	right: 24px;
+	top: 14px;
+	left: auto;
 	display: grid;
 	grid-template-columns: max-content;
 	margin: 0;
-	z-index: 1;
+	z-index: 1000;
+}
+
+.page-header-principal .btn_container .home-link {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 36px;
+	height: 36px;
+	margin-top: 6px;
+	border-radius: 4px;
+	background: #5cb85c; /* match success green */
+	border: 1px solid rgba(0,0,0,0.1);
+	text-decoration: none;
+}
+
+.page-header-principal .btn_container .home-link svg {
+	display: block;
+	margin: 0;
+	width: 18px;
+	height: 18px;
+	stroke-width: 1.4;
 }
 
 .btn_container * {
