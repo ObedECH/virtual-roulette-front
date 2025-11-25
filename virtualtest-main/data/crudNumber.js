@@ -32,9 +32,9 @@ const insertNumber = async (data) => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
     }
-    const api = await fetch(url, requestOption);
+    // Use the correctly named variable and handle response safely
+    const api = await fetch(url, requestOptions);
     const resp = await api.json();
-    
     if (!resp) return;
     return resp;
 }
@@ -45,12 +45,9 @@ const updateNumber = async (data) => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
     }
-    const api =
-        await fetch(url, requestOption)
-            .then(response => response)
-        .then(json => console.log(json));
+    // Use the correctly named variable and return parsed JSON
+    const api = await fetch(url, requestOptions);
     const resp = await api.json();
-
     if (!resp) return;
     return resp;
 }
@@ -59,9 +56,8 @@ const deleteNumber = async () => {
     const requestOptions = {
         method: 'DELETE'
     }
-    const api = await fetch(url, requestOption);
+    const api = await fetch(url, requestOptions);
     const resp = await api.json();
-
     if (!resp) return;
     return resp;
 }

@@ -7,10 +7,13 @@ fetch('data/prizes.json')
 
 $(function () {
 	//#region variables generales
-	var generalSpeed = 10;
+	var generalSpeed = 35;
 	var participantNumber = '1';
 	var isSortButtonOnClick = false;
 	var isBigAward = true;
+	var executingRoulette = false; // evita ejecuciones concurrentes
+	var lastRequestTimestamp = 0; // timestamp de la última petición al servidor
+	var MIN_REQUEST_INTERVAL = 2000; // ms mínimo entre llamadas al backend
 	var participants = [];
 	var regionalId = isBigAward ? 'NACIONAL' : $('#regionalId').val();
 
@@ -88,13 +91,29 @@ $(function () {
 	};
 
 	$('.start').click(function () {
-		setValues();
-		setDisabledButtons(true);
+		// Evitar ejecuciones concurrentes desde cliente
+		if (executingRoulette) return;
 
-		if (!isSortButtonDisabled()) {
-			createAndExecuteRouletters();
+		var now = Date.now();
+		var sinceLast = now - lastRequestTimestamp;
+		var startExecution = function() {
+			executingRoulette = true;
+			setValues();
+			setDisabledButtons(true);
+
+			if (!isSortButtonDisabled()) {
+				createAndExecuteRouletters();
+			} else {
+				setDisabledButtons(false);
+				executingRoulette = false;
+			}
+		};
+
+		if (sinceLast < MIN_REQUEST_INTERVAL) {
+			// retrasar para no golpear el servidor si se ha llamado muy recientemente
+			setTimeout(startExecution, MIN_REQUEST_INTERVAL - sinceLast + 50);
 		} else {
-			setDisabledButtons(false);
+			startExecution();
 		}
 	});
 
@@ -243,6 +262,9 @@ $(function () {
 		var participantNumberUrl = isBigAward ? '1' : participantNumber;
 		var region = isBigAward ? 'NACIONAL' : $('#regionalId').val();
 
+		// Registrar timestamp de esta petición para evitar peticiones rápidas consecutivas
+		lastRequestTimestamp = Date.now();
+
 		getNumber(participantNumberUrl, region).then(data => {
 			if (data.length > 0) {
 				if (isBigAward) {
@@ -262,9 +284,11 @@ $(function () {
 				cleanDataTableRow();
 				alert("Ya no hay más premios por asignar a la región seleccionada");
 				setDisabledButtons(false);
+				executingRoulette = false;
 			}
 		}).catch(error => {
 			setDisabledButtons(false);
+			executingRoulette = false;
 		});
 	}
 
@@ -302,12 +326,15 @@ $(function () {
 						setTimeout(() => {
 							$('.show_big_award_winner')
 								.append(getWinnerHtml(participants[0], index));
-						}, (index - 1) * 3000);
-
-						setTimeout(() => {
-							setDisabledButtons(false);
-						}, 4 * 3000);
+						}, (index - 1) * 1000);
 					}
+
+					// Rehabilitar botones y permitir nuevas ejecuciones una vez que
+					// todas las piezas se hayan mostrado (último append a (5-1)*1500)
+					setTimeout(() => {
+						setDisabledButtons(false);
+						executingRoulette = false;
+					}, 4 * 1000);
 				}
 			}
 		};

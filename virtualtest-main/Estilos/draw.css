@@ -133,6 +133,8 @@ img {
 	height: max-content;
 	width: 100%;
 	padding: 20px;
+	position: relative;
+	/* Contexto de posicionamiento para elementos absolutos */
 
 	/* Fondo navideño azul con transparencia */
 	background: rgba(100, 130, 173, 0.3);
@@ -266,34 +268,62 @@ div.ui-slider {
 }
 
 .prize-image {
-	/* Posicionar el contenedor del premio relativo a .show_big_award_winner */
-	position: absolute;
-	right: 20px;
-	top: 50%;
-	transform: translateY(-50%) translateX(120%);
+	position: fixed;
 	z-index: 60;
-	/* Evitar que interfiera con el flujo del texto cuando aparece */
+	/* Posicionar en la zona remarcada (recuadro rojo) */
+	right: 150px;
+	top: 130px;
 	display: block;
-	/* animación por defecto al mostrarse */
-	animation: slide-in-right 0.6s cubic-bezier(.2,.9,.2,1) forwards;
 }
 
 .prize-image img {
-	max-width: 280px;
-	max-height: 180px;
-	object-fit: contain;
-	border-radius: 8px;
-	box-shadow: 0 0 12px rgba(0, 0, 0, 0.35);
+	
+	max-width: 250px;
+	max-height: 250px;
+	position: fixed;
+	z-index: 60;
+	right: 100px;
+	top: 10px;
+	display: block;
+	/* animación por defecto al mostrarse */
+	animation: slide-in-down 9s cubic-bezier(.2,.9,.2,1) forwards;
+
 }
 
-@keyframes slide-in-right {
+
+@keyframes slide-in-down {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+
+/* Animación para la tarjeta de premio (Opción 2) */
+@keyframes prize-card-appear {
 	from {
-		transform: translateY(-50%) translateX(120%);
+		transform: scale(0.8) rotateY(-20deg);
 		opacity: 0;
 	}
 	to {
-		transform: translateY(-50%) translateX(0);
+		transform: scale(1) rotateY(0deg);
 		opacity: 1;
+	}
+}
+
+/* Animación flotante para imagen con glow (Opción 3) */
+@keyframes float-prize {
+	0%, 100% {
+		transform: translateY(0px);
+		filter: drop-shadow(0 0 12px rgba(203,115,20,0.4));
+	}
+	50% {
+		transform: translateY(-12px);
+		filter: drop-shadow(0 0 20px rgba(203,115,20,0.6));
 	}
 }
 
